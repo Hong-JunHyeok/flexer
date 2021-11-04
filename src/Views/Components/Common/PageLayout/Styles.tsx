@@ -9,6 +9,7 @@ const PageLayoutContainer = styled.div`
 
 const PageContentContainer = styled.div`
   width: 100%;
+  padding: 2rem;
   background-color: ${oc.gray};
 `;
 

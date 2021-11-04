@@ -1,30 +1,27 @@
-import { Fragment, useCallback, FunctionComponent } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { counterState, counterOddState } from "../../../Store/Counter";
+import styled from "@emotion/styled";
+import { Fragment, FunctionComponent } from "react";
+import Wallet from "Views/Components/Main/Wallet";
 import PageLayout from "../../Components/Common/PageLayout";
-import SideBar from "../../Components/Common/SideBar";
 
 const MainPage: FunctionComponent = () => {
-  const [counter, setCounter] = useRecoilState(counterState);
-  const isCounterOdd = useRecoilValue(counterOddState);
-
-  const handleIncreaseNumber = useCallback(() => {
-    setCounter((currentValue) => currentValue + 1);
-  }, [setCounter]);
-  const handleDecreaseNumber = useCallback(() => {
-    setCounter((currentValue) => currentValue - 1);
-  }, [setCounter]);
-
   return (
     <Fragment>
       <PageLayout>
-        <h1>{counter}</h1> ({isCounterOdd ? "홀" : "짝"})
-        <br />
-        <button onClick={handleIncreaseNumber}>+</button>
-        <button onClick={handleDecreaseNumber}>-</button>
+        <WalletLayout>
+          <h1 className="wallet-title">내 지갑</h1>
+          <Wallet />
+        </WalletLayout>
       </PageLayout>
     </Fragment>
   );
 };
+
+const WalletLayout = styled.section`
+  .wallet-title {
+    font-weight: bold;
+    font-size: 22px;
+    margin: 15px 0;
+  }
+`;
 
 export default MainPage;
