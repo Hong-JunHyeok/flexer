@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Styles from "./Styles";
 import SideBarMeta from "Data/SideBarMeta";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const SideBar: React.FunctionComponent = () => {
+  const { push } = useHistory();
+
+  const handlePushMain = useCallback(() => {
+    push("/");
+  }, [push]);
+
   const { Categories, Metas } = SideBarMeta;
 
   const CategoryList = Categories.map((category) => (
@@ -21,7 +27,7 @@ const SideBar: React.FunctionComponent = () => {
   return (
     <React.Fragment>
       <Styles.SideBarContainer>
-        <Styles.SideBarHeader>
+        <Styles.SideBarHeader onClick={handlePushMain}>
           <h1 className="title">🤑FLEXER</h1>
           <span className="subtitle">"오늘은 한번 질러보자"</span>
         </Styles.SideBarHeader>

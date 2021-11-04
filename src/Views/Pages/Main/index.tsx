@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { generageFakeProduct } from "Data/PopularsData";
 import { Fragment, FunctionComponent, useEffect } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { productsState } from "Store/Product";
 import { PopularList } from "Views/Components/Main/Popular";
 import Wallet from "Views/Components/Main/Wallet";
@@ -17,11 +17,11 @@ const MainPage: FunctionComponent = () => {
   return (
     <Fragment>
       <PageLayout>
-        <WalletLayout>
+        <WalletLayout className="wallet">
           <h1 className="wallet-title">내 지갑</h1>
           <Wallet />
         </WalletLayout>
-        <ShopLayout>
+        <ShopLayout className="popular">
           <h1 className="shop-title">인기 상품</h1>
           <PopularList />
         </ShopLayout>

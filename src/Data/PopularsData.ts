@@ -12,8 +12,8 @@ export function generageFakeProduct(generateCount: number): Product[] {
       id: generateId(),
       product_name: faker.name.jobTitle(),
       product_description: faker.name.jobDescriptor(),
-      product_image: faker.image.technics(),
-      product_price: Math.random() * 1000 + 1000,
+      product_image: faker.random.image(),
+      product_price: Math.floor(Math.random() * 1000 + 1000),
       product_sale: 20,
     });
   }

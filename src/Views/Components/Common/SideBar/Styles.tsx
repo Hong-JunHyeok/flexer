@@ -4,7 +4,7 @@ import { FlexColumn } from "../../../../Util/Style/MixonModules";
 
 const SideBarContainer = styled.div`
   padding: 1rem;
-  width: 400px;
+  min-width: 400px;
   background-color: ${oc.white};
 
   a {
@@ -27,6 +27,7 @@ const SideBarHeader = styled.header`
   align-items: center;
   user-select: none;
   margin-bottom: 4rem;
+  cursor: pointer;
   .title {
     font-size: 32px;
     font-weight: bold;
