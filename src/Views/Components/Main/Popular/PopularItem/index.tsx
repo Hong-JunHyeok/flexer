@@ -15,8 +15,15 @@ const PopularItem: React.FunctionComponent<Product> = ({
       <Styles.PopularItemContainer>
         <h1 className="name">{omissionString(product_name, 20)}</h1>
         <img className="image" src={product_image} alt="" />
-        <strong className="price">{product_price} 원</strong>
-        <p className="desc">{product_description}</p>
+        {product_sale === 0 ? (
+          <React.Fragment>
+            <em className="original-price">{product_price} 원</em>
+            <strong className="sale-price"></strong>
+          </React.Fragment>
+        ) : (
+          <strong className="price">{product_price} 원</strong>
+        )}
+        <p className="desc">{omissionString(product_description, 100)}</p>
       </Styles.PopularItemContainer>
     </React.Fragment>
   );
