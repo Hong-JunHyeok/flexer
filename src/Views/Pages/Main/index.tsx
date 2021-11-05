@@ -11,18 +11,18 @@ const MainPage: FunctionComponent = () => {
   const setProducts = useSetRecoilState(productsState);
 
   useEffect(() => {
-    setProducts(generageFakeProduct(10));
+    setProducts(generageFakeProduct(100));
   }, [setProducts]);
 
   return (
     <Fragment>
       <PageLayout>
         <WalletLayout className="wallet">
-          <h1 className="wallet-title">내 지갑</h1>
+          <h1 className="wallet-title">👝 내 지갑</h1>
           <Wallet />
         </WalletLayout>
         <ShopLayout className="popular">
-          <h1 className="shop-title">인기 상품</h1>
+          <h1 className="shop-title">🎉 인기 상품</h1>
           <PopularList />
         </ShopLayout>
       </PageLayout>
