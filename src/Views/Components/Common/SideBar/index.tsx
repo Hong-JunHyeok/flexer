@@ -1,19 +1,25 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Styles from "./Styles";
 import SideBarMeta from "Data/SideBarMeta";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import useLinkPush from "Hooks/useLinkPush";
 
 const SideBar: React.FunctionComponent = () => {
-  const { push } = useHistory();
-
-  const handlePushMain = useCallback(() => {
-    push("/");
-  }, [push]);
+  const handlePushMainPage = useLinkPush("/");
 
   const { Categories, Metas } = SideBarMeta;
 
+  const params = useParams<{ category: any }>();
+  const productPageParam = params.category;
+  console.log(productPageParam);
+
   const CategoryList = Categories.map((category) => (
-    <Link to={category.link} className="category">
+    <Link
+      to={category.link}
+      className={"category ".concat(
+        productPageParam === category.name ? "active" : ""
+      )}
+    >
       <li>{category.content}</li>
     </Link>
   ));
@@ -27,7 +33,7 @@ const SideBar: React.FunctionComponent = () => {
   return (
     <React.Fragment>
       <Styles.SideBarContainer>
-        <Styles.SideBarHeader onClick={handlePushMain}>
+        <Styles.SideBarHeader onClick={handlePushMainPage}>
           <h1 className="title">🤑FLEXER</h1>
           <span className="subtitle">"오늘은 한번 질러보자"</span>
         </Styles.SideBarHeader>

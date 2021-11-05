@@ -51,6 +51,12 @@ const SideBarContents = styled.ul`
       background-color: ${oc.yellow[1]};
     }
   }
+  .active {
+    background-color: ${oc.yellow[6]} !important;
+    & > li {
+      color: ${oc.black} !important;
+    }
+  }
 `;
 
 const SideBarMeta = styled.ul`
